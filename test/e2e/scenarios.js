@@ -14,14 +14,14 @@ describe('PhoneCat App', function() {
     var query = element(by.model('query'));
 
     it('should filter the phone list as a user types into the search box', function() {
-      expect(phoneList.count()).toBe(3);
+      expect(phoneList.count()).toBe(20);
 
       query.sendKeys('nexus');
       expect(phoneList.count()).toBe(1);
 
       query.clear();
       query.sendKeys('motorola');
-      expect(phoneList.count()).toBe(2);
+      expect(phoneList.count()).toBe(8);
     });
 
     it('should display the current filter value in the title bar', function() {
