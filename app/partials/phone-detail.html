@@ -18,7 +18,94 @@
       <dd ng-repeat="availability in vm.phone.availability">{{availability}}</dd>
     </dl>
   </li>
-  ...
+  <li>
+    <span>Battery</span>
+    <dl>
+      <dt>Type</dt>
+      <dd>{{vm.phone.battery.type}}</dd>
+      <dt>Talk Time</dt>
+      <dd>{{vm.phone.battery.talkTime}}</dd>
+      <dt>Standby time (max)</dt>
+      <dd>{{vm.phone.battery.standbyTime}}</dd>
+    </dl>
+  </li>
+  <li>
+    <span>Storage and Memory</span>
+    <dl>
+      <dt>RAM</dt>
+      <dd>{{vm.phone.storage.ram}}</dd>
+      <dt>Internal Storage</dt>
+      <dd>{{vm.phone.storage.flash}}</dd>
+    </dl>
+  </li>
+  <li>
+    <span>Connectivity</span>
+    <dl>
+      <dt>Network Support</dt>
+      <dd>{{vm.phone.connectivity.cell}}</dd>
+      <dt>WiFi</dt>
+      <dd>{{vm.phone.connectivity.wifi}}</dd>
+      <dt>Bluetooth</dt>
+      <dd>{{vm.phone.connectivity.bluetooth}}</dd>
+      <dt>Infrared</dt>
+      <dd>{{vm.phone.connectivity.infrared}}</dd>
+      <dt>GPS</dt>
+      <dd>{{vm.phone.connectivity.gps}}</dd>
+    </dl>
+  </li>
+  <li>
+    <span>Android</span>
+    <dl>
+      <dt>OS Version</dt>
+      <dd>{{vm.phone.android.os}}</dd>
+      <dt>UI</dt>
+      <dd>{{vm.phone.android.ui}}</dd>
+    </dl>
+  </li>
+  <li>
+    <span>Size and Weight</span>
+    <dl>
+      <dt>Dimensions</dt>
+      <dd ng-repeat="dim in phone.sizeAndWeight.dimensions">{{dim}}</dd>
+      <dt>Weight</dt>
+      <dd>{{vm.phone.sizeAndWeight.weight}}</dd>
+    </dl>
+  </li>
+  <li>
+    <span>Display</span>
+    <dl>
+      <dt>Screen size</dt>
+      <dd>{{vm.phone.display.screenSize}}</dd>
+      <dt>Screen resolution</dt>
+      <dd>{{vm.phone.display.screenResolution}}</dd>
+      <dt>Touch screen</dt>
+      <dd>{{vm.phone.display.touchScreen}}</dd>
+    </dl>
+  </li>
+  <li>
+    <span>Hardware</span>
+    <dl>
+      <dt>CPU</dt>
+      <dd>{{vm.phone.hardware.cpu}}</dd>
+      <dt>USB</dt>
+      <dd>{{vm.phone.hardware.usb}}</dd>
+      <dt>Audio / headphone jack</dt>
+      <dd>{{vm.phone.hardware.audioJack}}</dd>
+      <dt>FM Radio</dt>
+      <dd>{{vm.phone.hardware.fmRadio}}</dd>
+      <dt>Accelerometer</dt>
+      <dd>{{vm.phone.hardware.accelerometer}}</dd>
+    </dl>
+  </li>
+  <li>
+    <span>Camera</span>
+    <dl>
+      <dt>Primary</dt>
+      <dd>{{vm.phone.camera.primary}}</dd>
+      <dt>Features</dt>
+      <dd>{{vm.phone.camera.features.join(', ')}}</dd>
+    </dl>
+  </li>
   <li>
     <span>Additional Features</span>
     <dd>{{vm.phone.additionalFeatures}}</dd>
