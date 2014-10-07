@@ -5,6 +5,15 @@
 describe('PhoneCat controllers', function() {
 
   beforeEach(module('phonecatApp'));
+  beforeEach(module('phonecatApp.phonecatServices'));
+
+  beforeEach(function(){
+    this.addMatchers({
+      toEqualData: function(expected) {
+        return angular.equals(this.actual, expected);
+      }
+    });
+  });
 
   describe('PhoneListCtrl', function(){
     var scope, ctrl, $httpBackend;
@@ -18,11 +27,11 @@ describe('PhoneCat controllers', function() {
       ctrl = $controller('PhoneListCtrl', {$scope: scope})
     }));
 
-    it('should create "phones" model with 3 phones', function() {
-      expect(scope.phones).toBeUndefined();
+    it('should create "phones" model with 2 phones fetched from xhr', function() {
+      expect(ctrl.phones).toEqualData([]);
       $httpBackend.flush();
 
-      expect(ctrl.phones).toEqual([{name: 'Nexus S'},
+      expect(ctrl.phones).toEqualData([{name: 'Nexus S'},
                                     {name: 'Motorola DROID'}]);
     });
 
@@ -51,10 +60,10 @@ describe('PhoneCat controllers', function() {
 
 
     it('should fetch phone detail', function() {
-      expect(ctrl.phone).toBeUndefined();
+      expect(ctrl.phone).toEqualData({});
       $httpBackend.flush();
 
-      expect(ctrl.phone).toEqual({
+      expect(ctrl.phone).toEqualData({
         name: 'phone xyz',
         images: ['image/url1.png', 'image/url2.png']
       });
