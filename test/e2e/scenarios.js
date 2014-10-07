@@ -7,10 +7,10 @@ describe('PhoneCat App', function() {
   describe('Phone list view', function() {
 
     beforeEach(function() {
-      browser.get('app/index.html');
+      browser.get('app/index.html#phones');
     });
 
-    var phoneList = element.all(by.repeater('phone in phones'));
+    var phoneList = element.all(by.repeater('phone in vm.phones'));
     var query = element(by.model('query'));
     
     it('should render phone specific links', function() {
@@ -35,7 +35,7 @@ describe('PhoneCat App', function() {
     
      it('should be possible to control phone order via the drop down select box', function() {
 
-       var phoneNameColumn = element.all(by.repeater('phone in phones').column('{{phone.name}}'));
+       var phoneNameColumn = element.all(by.repeater('phone in vm.phones').column('{{phone.name}}'));
        var query = element(by.model('query'));
 
        function getNames() {
@@ -51,20 +51,12 @@ describe('PhoneCat App', function() {
          "MOTOROLA XOOM\u2122"
        ]);
 
-       element(by.model('orderProp')).element(by.css('option[value="name"]')).click();
+       element(by.model('vm.orderProp')).element(by.css('option[value="name"]')).click();
 
        expect(getNames()).toEqual([
          "MOTOROLA XOOM\u2122",
          "Motorola XOOM\u2122 with Wi-Fi"
        ]);
-     });
-
-     it('should display the current filter value in the title bar', function() {
-       query.clear();
-       expect(browser.getTitle()).toMatch(/Google Phone Gallery:\s*$/);
-
-       query.sendKeys('nexus');
-       expect(browser.getTitle()).toMatch(/Google Phone Gallery: nexus$/);
      });
     
   });
