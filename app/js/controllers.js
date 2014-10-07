@@ -20,6 +20,11 @@ function PhoneDetailCtrl($scope, $routeParams, $http) {
 
   $http.get('phones/' + $routeParams.phoneId + '.json').success(function(data) {
       vm.phone = data;
+      vm.mainImageUrl = data.images[0];
   });
+
+  vm.setImage = function(imageUrl) {
+    vm.mainImageUrl = imageUrl;
+  }
 
 }
