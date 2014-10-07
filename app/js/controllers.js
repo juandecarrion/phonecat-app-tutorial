@@ -15,9 +15,11 @@ function PhoneListCtrl($http) {
 
 }
 
-function PhoneDetailCtrl($routeParams) {
+function PhoneDetailCtrl($scope, $routeParams, $http) {
   var vm = this;
 
-  vm.phoneId = $routeParams.phoneId;
+  $http.get('phones/' + $routeParams.phoneId + '.json').success(function(data) {
+      vm.phone = data;
+  });
 
 }

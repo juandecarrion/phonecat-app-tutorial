@@ -77,11 +77,19 @@ describe('PhoneCat App', function() {
     beforeEach(function() {
       browser.get('app/index.html#/phones/nexus-s');
     });
+    
+    var imageList = element.all(by.repeater('img in vm.phone.images'));
 
 
-    it('should display placeholder page with phoneId', function() {
-      expect(element(by.binding('phoneId')).getText()).toBe('nexus-s');
+    it('should display nexus-s page', function() {
+      expect(element(by.binding('vm.phone.name')).getText()).toBe('Nexus S');
     });
+
+
+    it('should display 4 images', function() {
+      expect(imageList.count()).toBe(4)
+    });
+
   });
   
 });
